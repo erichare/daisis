@@ -1,0 +1,5 @@
+yfinance
+bokeh
+numpy
+pandas_stubs
+pandas
