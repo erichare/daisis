@@ -13,5 +13,5 @@ def percentile(field="Age", percentile=.25):
     return float(titanic[field].quantile(float(percentile)))
 
 def raw(rows: int=5):
-    return titanic.head(rows)
+    return titanic.head(int(rows))
     
