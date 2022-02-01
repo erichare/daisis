@@ -28,8 +28,11 @@ def prime_generator():
             yield n
 
 
-def get_prime(number: int=9999):
+def write_and_get_prime(number: int=9999):
     start = time.time()
+
+    if number > 1000000:
+        raise AssertionError("Please reduce the number to < 1,000,000")
 
     curr = 1
     numFound = 0
@@ -39,6 +42,14 @@ def get_prime(number: int=9999):
         curr = next(generator)
         numFound += 1
 
-    print("Execution time : ", time.time() - start)
+    sentences = [lorem.sentence() for _ in range(number)]
 
-    return "Largest prime found: {}\n Number of primes found: {}".format(curr, numFound)
+    with tempfile.TemporaryDirectory() as td:
+        f_name = os.path.join(td, 'test')
+        with open(f_name, 'w') as fh:
+            fh.writelines(sentences)
+
+            print("Execution time : ", time.time() - start)
+
+            return ["Largest prime found: {}\n Number of primes found: {}".format(curr, numFound),
+                    "File Size: " + str(os.path.getsize(f_name))]
