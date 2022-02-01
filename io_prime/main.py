@@ -31,8 +31,8 @@ def prime_generator():
 def write_and_get_prime(number: int=9999):
     start = time.time()
 
-    if number > 1000000:
-        raise AssertionError("Please reduce the number to < 1,000,000")
+    if number > 100000:
+        raise AssertionError("Please reduce the number to < 100,000")
 
     curr = 1
     numFound = 0
