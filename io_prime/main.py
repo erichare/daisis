@@ -1,55 +1,74 @@
 # Copyright (c) 2021 Belmont Technology Inc. All rights reserved.
 from math import sqrt
 import time
+import lorem
+import os
+import tempfile
 
 
-def is_prime(n):
-    if n <= 1:
-        return False
-    if n == 2:
-        return True
-    if n % 2 == 0:
-        return False
-
-    i = 3
-    while i <= sqrt(n):
-        if n % i == 0:
-            return False
-        i = i + 2
-
-    return True
-
-
-def prime_generator():
-    n = 1
-    while True:
-        n += 1
-        if is_prime(n):
-            yield n
-
-
-def write_and_get_prime(number: int=9999):
+def compute_bound(num_prime: int=10000):
     start = time.time()
 
-    if number > 100000:
+    def is_prime(n):
+        if n <= 1:
+            return False
+        if n == 2:
+            return True
+        if n % 2 == 0:
+            return False
+
+        i = 3
+        while i <= sqrt(n):
+            if n % i == 0:
+                return False
+            i = i + 2
+
+        return True
+
+
+    def prime_generator():
+        n = 1
+        while True:
+            n += 1
+            if is_prime(n):
+                yield n
+
+    if num_prime > 100000:
         raise AssertionError("Please reduce the number to < 100,000")
 
     curr = 1
     numFound = 0
     generator = prime_generator()
 
-    while numFound < int(number):
+    while numFound < int(num_prime):
         curr = next(generator)
         numFound += 1
 
-    sentences = [lorem.sentence() for _ in range(number)]
+    print("Compute Time : ", time.time() - start)
+
+    return "Largest prime found: {}\n Number of primes found: {}".format(curr, numFound)
+
+
+def io_bound(num_sentences: int=100000):
+    start = time.time()
+
+    if num_sentences > 1000000:
+        raise AssertionError("Please reduce the num_sentences to < 1,000,000")
+
+    sentences = [lorem.sentence() for _ in range(num_sentences)]
 
     with tempfile.TemporaryDirectory() as td:
         f_name = os.path.join(td, 'test')
         with open(f_name, 'w') as fh:
             fh.writelines(sentences)
 
-            print("Execution time : ", time.time() - start)
+        print("IO Time : ", time.time() - start)
 
-            return ["Largest prime found: {}\n Number of primes found: {}".format(curr, numFound),
-                    "File Size: " + str(os.path.getsize(f_name))]
+        return "File Size: " + str(os.path.getsize(f_name))
+
+
+def io_compute_bound(num_sentences: int=100000, num_prime: int=10000):
+    io_result = io_bound(num_sentences)
+    compute_result = compute_bound(num_prime)
+
+    return [io_result, compute_result]
