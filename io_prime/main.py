@@ -44,7 +44,7 @@ def compute_bound(num_prime: int=10000):
         curr = next(generator)
         numFound += 1
 
-    print("Compute Time : ", time.time() - start)
+    print("Compute Time : " + time.time() - start)
 
     return "Largest prime found: {}\n Number of primes found: {}".format(curr, numFound)
 
@@ -62,7 +62,7 @@ def io_bound(num_sentences: int=100000):
         with open(f_name, 'w') as fh:
             fh.writelines(sentences)
 
-        print("IO Time : ", time.time() - start)
+        print("IO Time : " + time.time() - start)
 
         return "File Size: " + str(os.path.getsize(f_name))
 
