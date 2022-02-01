@@ -4,7 +4,7 @@ import lorem
 import os
 import tempfile
 
-def write_disk(num_sentences=10000):
+def write_disk(num_sentences: int=10000):
     start = time.time()
 
     if num_sentences > 1000000:
