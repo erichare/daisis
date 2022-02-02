@@ -9,7 +9,7 @@ import tempfile
 def compute_bound(num_prime: int=10000):
     start = time.time()
 
-    def is_prime(n):
+    def is_prime(n: int):
         if n <= 1:
             return False
         if n == 2:
