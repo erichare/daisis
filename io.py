@@ -6,7 +6,7 @@ import os
 import tempfile
 
 
-def compute_bound(num_prime: int=10000):
+def top_level_compute_bound(num_prime: int=10000):
     start = time.time()
 
     def is_prime(n: int):
@@ -49,7 +49,7 @@ def compute_bound(num_prime: int=10000):
     return "Largest prime found: {}\n Number of primes found: {}".format(curr, numFound)
 
 
-def io_bound(num_sentences: int=100000):
+def top_level_io_bound(num_sentences: int=100000):
     start = time.time()
 
     if num_sentences > 1000000:
@@ -67,7 +67,7 @@ def io_bound(num_sentences: int=100000):
         return "File Size: " + str(os.path.getsize(f_name))
 
 
-def io_compute_bound(num_sentences: int=100000, num_prime: int=10000):
+def top_level_io_compute_bound(num_sentences: int=100000, num_prime: int=10000):
     io_result = io_bound(num_sentences)
     compute_result = compute_bound(num_prime)
 
