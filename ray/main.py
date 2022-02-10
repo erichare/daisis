@@ -13,8 +13,12 @@ def compute(delay):
     time.sleep(1)
     start = time.time()
     #print(ray.nodes())
-    futures = [sleep.remote(float(delay)) for _ in range(5)]
-    ray.get(futures)
+    try:
+        futures = [sleep.remote(float(delay)) for _ in range(5)]
+        ray.get(futures)
+    except Exception as e:
+        print(e)
+        ray.init()
     print(time.time() - start)
     return str(time.time() - start)
 
