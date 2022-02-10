@@ -1,13 +1,13 @@
 import ray
 import time
 
-@ray.remote
-def sleep(delay):
-    time.sleep(1)
-
 def compute(delay):
-    ray.init()
+    ray.init(local_mode=True)
     print(ray.nodes())
+    
+    @ray.remote
+    def sleep(delay):
+        time.sleep(1)
 
     print("Beginning Ray Compute...")
     time.sleep(1)
