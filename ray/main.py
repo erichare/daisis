@@ -1,7 +1,8 @@
 import ray
 import time
 
-ray.init()
+ray.init(address='auto')
+print(ray.nodes())
 
 @ray.remote
 def sleep(delay):
@@ -9,6 +10,7 @@ def sleep(delay):
 
 def compute(delay):
     start = time.time()
+    print(ray.nodes())
     futures = [sleep.remote(float(delay)) for _ in range(15)]
     ray.get(futures)
     print(time.time() - start)
