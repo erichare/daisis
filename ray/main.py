@@ -6,9 +6,11 @@ print(ray.nodes())
 
 @ray.remote
 def sleep(delay):
-    time.sleep(delay)
+    time.sleep(1)
 
 def compute(delay):
+    print("Beginning Ray Compute...")
+    time.sleep(1)
     start = time.time()
     print(ray.nodes())
     futures = [sleep.remote(float(delay)) for _ in range(5)]
