@@ -21,6 +21,7 @@ def compute(delay):
     except Exception as e:
         print("We failed")
         print(e)
+        ray.shutdown()
         ray.init()
         futures = [sleep.remote(float(delay)) for _ in range(5)]
         ray.get(futures)
