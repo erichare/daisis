@@ -1,7 +1,7 @@
 import ray
 import time
 
-ray.init()
+ray.init(address="127.0.0.1:6380")
 print(ray.nodes())
 
 @ray.remote
