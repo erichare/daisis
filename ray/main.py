@@ -1,7 +1,7 @@
 import ray
 import time
 
-ray.init(local_mode=True)
+ray.init()
 print(ray.nodes())
 
 @ray.remote
