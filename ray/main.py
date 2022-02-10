@@ -11,7 +11,7 @@ def sleep(delay):
 def compute(delay):
     start = time.time()
     print(ray.nodes())
-    futures = [sleep.remote(float(delay)) for _ in range(15)]
+    futures = [sleep.remote(float(delay)) for _ in range(5)]
     ray.get(futures)
     print(time.time() - start)
     return str(time.time() - start)
