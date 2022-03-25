@@ -1,4 +1,5 @@
 import pandas as pd
+import streamlit as st
 
 #load and process data into a global structure
 titanic = pd.read_csv("https://raw.githubusercontent.com/pandas-dev/pandas/master/doc/data/titanic.csv")
@@ -14,4 +15,15 @@ def percentile(field="Age", percentile=.25):
 
 def raw(rows: int=5):
     return titanic.head(int(rows))
-    
+
+st.write("Titanic Statistics")
+
+option = st.selectbox(
+     'What variable would you like to use?',
+     ['Age'])
+
+st.write('You selected:', option)
+
+st.metric(label="Mean", value=mean(option))
+st.metric(label="Median", value=median(option))
+st.dataframe(data=raw())
