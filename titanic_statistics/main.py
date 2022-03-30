@@ -20,7 +20,7 @@ st.write("Titanic Statistics")
 
 option = st.selectbox(
      'What variable would you like to use?',
-     ['Age'])
+     ['Age', 'Fare'])
 
 st.write('You selected:', option)
 
