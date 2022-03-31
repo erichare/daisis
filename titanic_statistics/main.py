@@ -13,14 +13,14 @@ def median(field="Age"):
 def percentile(field="Age", percentile=.25):
     return float(titanic[field].quantile(float(percentile)))
 
-def raw(rows: int=5):
+def raw(rows: int=10):
     return titanic.head(int(rows))
 
 st.write("Titanic Statistics")
 
 option = st.selectbox(
      'What variable would you like to use?',
-     ['Age'])
+     ['Age', 'Fare'])
 
 st.write('You selected:', option)
 
