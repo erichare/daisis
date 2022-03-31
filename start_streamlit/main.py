@@ -9,4 +9,7 @@ def start(daisi_name, base_url="https://app.daisi.io"):
     r = requests.post("http://pebble-api/pebbles/streamlit", json={"id": my_id})
     result = r.json()
 
-    return result
+    r = requests.get("http://pebble-api/pebbles/streamlit")
+    result2 = r.json()
+
+    return [result, result2]
