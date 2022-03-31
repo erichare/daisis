@@ -12,6 +12,6 @@ def start(daisi_name, base_url="https://app.daisi.io"):
     r = requests.post("http://pebble-api/pebbles/streamlit", json={"id": my_id})
     result = r.json()
 
-    mystr = f'Previous Streamlit App: {result_2}<br>New Streamlit App: {result}<br><br>View it here: <a target="_blank" href="{base_url}/st>Click!</a>"'
+    mystr = f'Previous Streamlit App: {result2}<br>New Streamlit App: {result}<br><br>View it here: <a target="_blank" href="{base_url}/st>Click!</a>"'
 
     return mystr
