@@ -1,7 +1,14 @@
 from pydaisi import Daisi
 import streamlit as st
 
-t = Daisi("Titanic Statistics", base_url="https://dev3.daisi.io")
+@st.cache
+def load_daisi():
+    t = Daisi("Titanic Statistics", base_url="https://dev3.daisi.io")
+
+    return t
+
+
+t = load_daisi()
 
 st.write("Titanic Statistics")
 
