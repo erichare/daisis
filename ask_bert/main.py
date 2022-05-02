@@ -1,5 +1,6 @@
 import re
 from transformers import DistilBertTokenizer, TFDistilBertForQuestionAnswering, pipeline
+import streamlit as st
 
 
 qa = pipeline('question-answering',
@@ -67,3 +68,10 @@ def schema():
     ]
 
     return r
+  
+st.write("Ask BERT a Question!")
+
+context = st.text_input('Context Paragraph', 'A potato is a starchy vegetable.')
+query = st.text_input('Question', 'What is a potato?')
+
+st.text(compute(query, context))
