@@ -1,2 +1,2 @@
 pandas
-streamlit
+streamlit # for streamlit support
