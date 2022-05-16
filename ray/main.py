@@ -1,4 +1,4 @@
-# import ray
+import ray
 import time
 import numpy as np
 
