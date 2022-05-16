@@ -6,7 +6,7 @@ ray.init(address='localhost:6380')
 
 @ray.remote
 def sleep_function(name: str = "VM1 ", duration: int = 10):
-    for i in range(duration):
+    for i in range(int(duration)):
         time.sleep(1)
         print(name, str(np.random.rand()))
     
