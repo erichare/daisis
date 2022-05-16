@@ -11,13 +11,11 @@ def sleep_function(name: str = "VM1 ", duration: int = 10):
     return 1
 
 def compute(duration: int = 10, nb_procs: int = 4, name: str = "VM1"):
-    ray.init(address='localhost:6380')
+    ray.init(address='localhost:6380', ignore_reinit_error=True)
 
     start = time.time()
     futures = [sleep_function.remote(name = name, duration = duration) for _ in range(int(nb_procs))]
     ray.get(futures)
-    
-    ray.shutdown()
 
     return "Compute time :" + str(time.time() - start)
 
