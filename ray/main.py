@@ -1,26 +1,25 @@
 import ray
 import time
+import numpy as np
 
-ray.init(address="127.0.0.1:6380")
-print(ray.nodes())
+ray.init()
 
 @ray.remote
-def sleep(delay):
-    time.sleep(1)
+def sleep_function(name = "VM1 ", duration = 10):
+    for i in range(duration):
+        time.sleep(1)
+        print(name, str(np.random.rand()))
+    
+    return 1
 
-def compute(delay):
-    print(ray.nodes())
-
-    print("Beginning Ray Compute...")
-    time.sleep(1)
+def compute(duration = 10, nb_procs=4, name = "VM1"):
     start = time.time()
-    print("About to try")
-    futures = [sleep.remote(float(delay)) for _ in range(5)]
-    print("About to get...")
+    futures = [sleep_function.remote(name = name, duration = duration) for _ in range(nb_procs)]
     ray.get(futures)
 
-    print(time.time() - start)
-    return str(time.time() - start)
+    return "Compute time :" + str(time.time() - start)
 
 if __name__ == "__main__":
-    out = compute(1)
+    out = compute()
+    print(out)
+    
