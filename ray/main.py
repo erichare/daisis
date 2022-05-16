@@ -14,7 +14,7 @@ def sleep_function(name: str = "VM1 ", duration: int = 10):
 
 def compute(duration: int = 10, nb_procs: int = 4, name: str = "VM1"):
     start = time.time()
-    futures = [sleep_function.remote(name = name, duration = duration) for _ in range(nb_procs)]
+    futures = [sleep_function.remote(name = name, duration = duration) for _ in range(int(nb_procs))]
     ray.get(futures)
 
     return "Compute time :" + str(time.time() - start)
