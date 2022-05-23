@@ -2,6 +2,7 @@
 from math import sqrt
 import time
 import lorem # Test again
+import cryptocode
 import os
 import tempfile
 
