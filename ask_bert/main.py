@@ -1,7 +1,6 @@
 import re
 from transformers import DistilBertTokenizer, TFDistilBertForQuestionAnswering, pipeline
-import streamlit as st
-
+import streamlit as st # Test
 
 qa = pipeline('question-answering',
               model=TFDistilBertForQuestionAnswering.from_pretrained("./bert"),
