@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import lorem # Test
 
 st.title('Uber pickups in NYC')
 
@@ -33,5 +32,5 @@ st.bar_chart(hist_values)
 hour_to_filter = st.slider('hour', 0, 23, 17)
 filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
 
-st.subheader('Map of all pickups at %s:00' % hour_to_filter)
+st.subheader('Map of all pickupz at %s:00' % hour_to_filter)
 st.map(filtered_data)
