@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import lorem
 
 st.title('Uber pickups in NYC')
 
