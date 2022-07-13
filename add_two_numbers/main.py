@@ -1,5 +1,4 @@
 import time
-import pandas as pd
 
 def add(firstNumber: float=4, secondNumber: float=5):
     # Compute the add
