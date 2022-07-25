@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-from .helper import my_dep_var
+from helper import my_dep_var
 
 st.title(f'Uber pickups in NYC! {my_dep_var}')
 
