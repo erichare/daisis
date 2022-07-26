@@ -1,1 +1,1 @@
-my_dep_var = 2
+my_dep_var = 4
