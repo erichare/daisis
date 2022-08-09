@@ -1,4 +1,4 @@
-raise AssertionError("Failed to load Daisi.")
+x - 5
 
 def compute(firstNumber: float=4, secondNumber: float=5):
     # Compute the add
