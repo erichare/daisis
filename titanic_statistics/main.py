@@ -16,7 +16,7 @@ def percentile(field="Age", percentile=.25):
 def raw(rows: int=10):
     return titanic.head(int(rows))
 
-st.write("Titanic Statistics - Updated Again!")
+st.write("Titanic Statistics - Updated Again and Again!")
 
 option = st.selectbox(
      'What variable would you like to use?',
