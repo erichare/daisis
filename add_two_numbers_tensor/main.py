@@ -9,4 +9,4 @@ def compute(firstNumber: float=4, secondNumber: float=5):
     return result
 
 st.title('Add Two Numbers!')
-st.text(compute(5, 2))
+st.text(compute(2, 2))
