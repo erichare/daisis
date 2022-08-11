@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import cryptocode
 
 #load and process data into a global structure
 titanic = pd.read_csv("https://raw.githubusercontent.com/pandas-dev/pandas/master/doc/data/titanic.csv")
