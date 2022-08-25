@@ -1,10 +1,11 @@
 import re
-from transformers import DistilBertTokenizer, TFDistilBertForQuestionAnswering, pipeline
-import streamlit as st # Test
+import streamlit as st
+
+from transformers import pipeline
+
 
 qa = pipeline('question-answering',
-              model=TFDistilBertForQuestionAnswering.from_pretrained("./bert"),
-              tokenizer=DistilBertTokenizer.from_pretrained("./bert"))
+              model="/pebble_tmp/tmp/model_bert")
 
 
 def highlight_text(sentence, terms):
@@ -44,29 +45,8 @@ def compute(query, context):
     terms = [result["answer"]]
     res = highlight_text(context, terms)
 
-    return [{"type": "json", "data": result}, {"type": "html", "data": res}]
+    return [result, res]
 
-
-def schema():
-    r = [
-        {
-            "id": "query",
-            "type": "text",
-            "label": "Query",
-            "props": {}
-        },
-        {
-            "id": "context",
-            "type": "text",
-            "label": "Context Paragraphs",
-            "props": {
-                "multiline": True,
-                "rows": 10
-            }
-        }
-    ]
-
-    return r
   
 st.write("Ask BERT a Question!")
 
