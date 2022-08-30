@@ -4,7 +4,7 @@ import os
 
 def add_test(firstNumber: float=4, secondNumber: float=5):
     # Compute the add
-    print(os.environ["USER_ID"])
+    print(os.environ)
     time.sleep(1)
     print("Hi")
     time.sleep(1)
