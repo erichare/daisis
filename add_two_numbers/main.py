@@ -2,7 +2,7 @@ import time
 import numpy as np
 import os
 
-test = print(os.environ)
+test = os.environ
 
 def add_test(firstNumber: float=4, secondNumber: float=5):
     # Compute the add
