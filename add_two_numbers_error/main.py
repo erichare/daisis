@@ -1,4 +1,4 @@
-x - 5
+print(os.environ)
 
 def compute(firstNumber: float=4, secondNumber: float=5):
     # Compute the add
