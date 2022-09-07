@@ -4,6 +4,8 @@ import os # Test
 
 test = os.environ
 
+print("I'm testing a load print!")
+
 def add_test(firstNumber: float=4, secondNumber: float=5):
     # Compute the add
     print(os.environ)
