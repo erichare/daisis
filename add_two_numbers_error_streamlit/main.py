@@ -1,12 +1,12 @@
 import streamlit as st
 import os
 
-x / 5
-
 def compute(firstNumber: float=4, secondNumber: float=5):
     # Compute the add
     result = firstNumber + secondNumber
     print(os.environ)
+    
+    x / 5
 
     return result
 
