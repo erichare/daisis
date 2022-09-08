@@ -5,8 +5,6 @@ def compute(firstNumber: float=4, secondNumber: float=5):
     # Compute the add
     result = firstNumber + secondNumber
     print(os.environ)
-    
-    x / 5
 
     return result
 
