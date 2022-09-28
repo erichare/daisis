@@ -3,6 +3,7 @@ import streamlit as st
 import os
 
 test = os.environ
+print("Global load")
 
 def add_test(firstNumber: float=4, secondNumber: float=5):
     # Compute the add
