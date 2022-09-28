@@ -26,6 +26,8 @@ def subtract(firstNumber: float=4, secondNumber: float=5):
 def st_ui():
     st.set_page_config(layout = "wide")
     st.title("Test Environment Variables!")
+    
+    print("Hehe")
 
     st.write(test)
     st.write(os.environ)
