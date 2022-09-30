@@ -10,7 +10,7 @@ def add_test(firstNumber: float=4, secondNumber: float=5):
     # Compute the add
     print(os.environ)
     time.sleep(1)
-    print("Hi")
+    print("Bye")
     print(test)
     time.sleep(1)
     result = firstNumber + secondNumber
@@ -19,6 +19,6 @@ def add_test(firstNumber: float=4, secondNumber: float=5):
 
 def subtract(firstNumber: float=4, secondNumber: float=5):
     # Compute the add
-    result = firstNumber - secondNumber
+    result = firstNumber * secondNumber
 
     return result
