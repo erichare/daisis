@@ -25,7 +25,7 @@ def subtract(firstNumber: float=4, secondNumber: float=5):
 
 def st_ui():
     st.set_page_config(layout = "wide")
-    st.title("Test Environment Variables!")
+    st.title("Test Environment Variables! Updated!")
     
     print("Hehe")
 
